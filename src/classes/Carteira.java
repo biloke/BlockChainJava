@@ -8,46 +8,58 @@ public class Carteira
     double saldo;
     Date dataAtualizacao;
 
-    public Carteira(Usuario usuario, double saldo, Date dataAtualizacao) {
+    public Carteira(Usuario usuario, double saldo, Date dataAtualizacao)
+    {
         setUsuario(usuario);
         setSaldo(saldo);
         setDataAtualizacao(dataAtualizacao);
     }
 
-    public Usuario getUsuario() {
+    public Usuario getUsuario()
+    {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Usuario usuario)
+    {
         this.usuario = usuario;
     }
 
-    public double mostrarSaldo() {
+    public double mostrarSaldo()
+    {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    public void setSaldo(double saldo)
+    {
         this.saldo = saldo;
     }
 
-    public Date getDataAtualizacao() {
+    public Date getDataAtualizacao()
+    {
         return dataAtualizacao;
     }
 
-    public void setDataAtualizacao(Date dataAtualizacao) {
+    public void setDataAtualizacao(Date dataAtualizacao)
+    {
         this.dataAtualizacao = dataAtualizacao;
     }
 
-    public boolean credita(double valor) {
+    public boolean credita(double valor)
+    {
+        setSaldo(this.saldo + valor);
         return true;
     }
 
-    public boolean dedita(double valor) {
+    public boolean dedita(double valor)
+    {
+        setSaldo(this.saldo - valor);
         return true;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Carteira{" +
                 "usuario=" + getUsuario() +
                 ", saldo=" + mostrarSaldo() +

@@ -10,7 +10,8 @@ public class Transacao
     Carteira destino;
     boolean concluida;
 
-    public Transacao(double valorTotal, Date data, Carteira origem, Carteira destino, boolean concluida) {
+    public Transacao(double valorTotal, Date data, Carteira origem, Carteira destino, boolean concluida)
+    {
         setValorTotal(valorTotal);
         setData(data);
         setOrigem(origem);
@@ -18,48 +19,67 @@ public class Transacao
         setConcluida(concluida);
     }
 
-    public double getValorTotal() {
+    public double getValorTotal()
+    {
         return valorTotal;
     }
 
-    public void setValorTotal(double valorTotal) {
+    public void setValorTotal(double valorTotal)
+    {
         this.valorTotal = valorTotal;
     }
 
-    public Date getData() {
+    public Date getData()
+    {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(Date data)
+    {
         this.data = data;
     }
 
-    public Carteira getOrigem() {
+    public Carteira getOrigem()
+    {
         return origem;
     }
 
-    public void setOrigem(Carteira origem) {
+    public void setOrigem(Carteira origem)
+    {
         this.origem = origem;
     }
 
-    public Carteira getDestino() {
+    public Carteira getDestino()
+    {
         return destino;
     }
 
-    public void setDestino(Carteira destino) {
+    public void setDestino(Carteira destino)
+    {
         this.destino = destino;
     }
 
-    public boolean isConcluida() {
+    public boolean isConcluida()
+    {
         return concluida;
     }
 
-    public void setConcluida(boolean concluida) {
+    public void setConcluida(boolean concluida)
+    {
         this.concluida = concluida;
     }
 
+    public boolean atualizaCarteira(Carteira origem, Carteira destino, double valorTotal)
+    {
+        origem.dedita(valorTotal);
+        destino.credita(valorTotal);
+        setConcluida(true);
+        return true;
+    }
+
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Transacao{" +
                 "valorTotal=" + getValorTotal() +
                 ", data=" + getData() +
